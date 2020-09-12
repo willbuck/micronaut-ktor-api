@@ -1,0 +1,7 @@
+FROM amazoncorretto:11.0.8-alpine
+
+COPY ./build/libs/micronaut-api-*-all.jar /home/app/micronaut-api.jar
+WORKDIR /home/app
+
+EXPOSE 8080
+ENTRYPOINT ["java", "-jar", "micronaut-api.jar"]

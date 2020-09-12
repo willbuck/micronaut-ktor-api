@@ -1,0 +1,6 @@
+applicationType: default
+defaultPackage: com.adidas.ys
+testFramework: junit
+sourceLanguage: kotlin
+buildTool: gradle
+features: [annotation-api, app-name, config4k, docker, file-watch, graalvm, gradle, http-client, junit, kotlin, ktor, logback, readme, shade]
