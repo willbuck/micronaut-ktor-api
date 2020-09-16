@@ -4,7 +4,7 @@ RUN gu install native-image
 COPY . /home/app/micronaut-api
 WORKDIR /home/app/micronaut-api
 
-RUN native-image --no-server -cp build/libs/micronaut-api-*-all.jar
+RUN native-image --verbose --no-server --no-fallback --install-exit-handlers --verbose -J-Xmx8G -J-Xms4G -H:+ReportUnsupportedElementsAtRuntime -H:+ReportExceptionStackTraces -H:+TraceClassInitialization -H:+PrintClassInitialization -H:+RemoveSaturatedTypeFlows -cp build/libs/micronaut-api-*-all.jar
 
 FROM frolvlad/alpine-glibc
 RUN apk update && apk add libstdc++
