@@ -1,16 +1,25 @@
 package com.adidas.ys.http
 import io.ktor.server.netty.NettyApplicationEngine
-import io.micronaut.ktor.KtorApplication
-import io.micronaut.ktor.runApplication
-import javax.inject.Singleton
+import io.ktor.application.*
+import io.ktor.http.*
+import io.ktor.response.*
+import io.ktor.routing.*
+import io.ktor.server.engine.*
+import io.ktor.server.netty.*
 
-@Singleton
-class KtorApp : KtorApplication<NettyApplicationEngine.Configuration>({
-})
 object Application {
     @JvmStatic
     fun main(args: Array<String>) {
-        runApplication(args)
+        val server = embeddedServer(Netty, port = 8080) {
+            routing {
+                get("/") {
+                    call.respondText("Hello World!", ContentType.Text.Plain)
+                }
+                get("/demo") {
+                    call.respondText("HELLO WORLD!")
+                }
+            }
+        }
+        server.start(wait = true)
     }
 }
-

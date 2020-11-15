@@ -1,4 +1,5 @@
 #!/bin/sh
+./gradlew build
 docker build . -t micronaut-api
 echo
 echo
